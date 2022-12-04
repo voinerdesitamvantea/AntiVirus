@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 7179253568186740253}
   - component: {fileID: 3930639113527604737}
   - component: {fileID: 3903453298002635501}
-  m_Layer: 5
+  - component: {fileID: 4509677835387396209}
+  m_Layer: 9
   m_Name: Turret2
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -117,8 +118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1fb8abed6073a4f87e9dc0053d4555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 4509677835387396209}
   health: 10
   cost: 5
+  turretContainer: {fileID: 6107199998473419497, guid: 3c0578901c0cbee4690c6a85370b952c, type: 3}
+  gameManager: {fileID: 0}
   damage: 1
   interval: 1.5
   bulletPrefabs: {fileID: 2613307833085462526, guid: 0b65cbc281d934c4b9fa4f144239c002, type: 3}
@@ -143,3 +147,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &4509677835387396209
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6417956983445531454}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 978a0a5fba5941f429dc79f653dc6195, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

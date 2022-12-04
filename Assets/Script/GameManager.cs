@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
 
     public void PlaceTurret()
     {
-
         if (turretDrag != null && CurrentContainer != null && currencySystem.EnoughCurrency(5))
         {
             currencySystem.Use(5);

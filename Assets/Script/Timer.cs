@@ -1,18 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [Header("Component")]
+    public TextMeshProUGUI timerText;
+
+    [Header("Timer Settings")]
+    public float currentTime;
+    public bool countDown;
+
+    [Header("Timer Settings")]
+    public bool hasLimit;
+    public float timerLimit;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
+        currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
         
+        if(hasLimit && ((countDown && currentTime <= timerLimit) || (!countDown && currentTime >= timerLimit)))
+        {
+            currentTime = timerLimit;
+            settimertext();
+            enabled = false;
+        }
+
+        settimertext();
+    }
+
+    private void settimertext()
+    {
+        timerText.text = currentTime.ToString("00.00");
     }
 }

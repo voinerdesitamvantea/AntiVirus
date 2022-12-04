@@ -16,7 +16,7 @@ public class TurretContainer : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (gameManager.turretDrag != null & isFull == false && collision.tag == "TurretDragger")
+        if (gameManager.turretDrag != null & isFull == false && collision.gameObject.layer == 6)
         {
             gameManager.CurrentContainer = this.gameObject;
             backGroundImage.enabled = true;

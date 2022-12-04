@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    public Animator animator;
     public int health;
     public int cost;
+    public TurretContainer turretContainer;
+    public GameManager gameManager;
 
     protected virtual void Start()
     {
-
     }
 
     public virtual bool LoseHealth(int amount)
@@ -18,6 +20,7 @@ public class Turret : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            turretContainer.isFull = false;
             return true;
         }
         return false;

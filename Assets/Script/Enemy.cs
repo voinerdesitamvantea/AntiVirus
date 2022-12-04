@@ -34,8 +34,6 @@ public class Enemy : MonoBehaviour
             StopCoroutine(attackOrder);
             Move();
         }
-
-
     }
 
     void Move()
@@ -64,17 +62,15 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Tower")
+        if(collision.gameObject.layer == 9)
         {
             detectedTurret = collision.GetComponent<Turret>();
             attackOrder = StartCoroutine(Attack());
             return;
         }
-        if(collision.tag == "End")
+        if(collision.gameObject.layer == 10)
         {
             Destroy(gameObject);
-            GetComponent<HealthSystem>().LoseHealth(damage);
-            return;
         }
     }
 }

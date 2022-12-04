@@ -12,7 +12,23 @@ public class Turret1 : Turret
     {
         StartCoroutine(Interval());
     }
-    
+
+    public override bool LoseHealth(int amount)
+    {
+        health--;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            turretContainer.isFull = false;
+            return true;
+        }
+        else
+        {
+            animator.Play("EntrositeHurtIdle");
+        }
+        return false;
+    }
+
     IEnumerator Interval()
     {
         yield return new WaitForSeconds(incomeInterval);

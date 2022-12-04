@@ -13,6 +13,22 @@ public class Turret2 : Turret
         StartCoroutine(ShootDelay());
     }
 
+    public override bool LoseHealth(int amount)
+    {
+        health--;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            turretContainer.isFull = false;
+            return true;
+        }
+        else
+        {
+            animator.Play("LeukositHurtIdle");
+        }
+        return false;
+    }
+
     IEnumerator ShootDelay()
     {
         yield return new WaitForSeconds(interval);
